@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheer Sunscreen Body Spray </title>
+    <link rel="stylesheet" href="product1.css"> 
+    </head>
+<body>
+
+    <main class="product-page-container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html">HOME</a>
+            <span>›</span>
+            <span>BHRINGRAJ HAIR OIL</span>
+        </div>
+
+        <div class="product-detail-layout">
+            <section class="product-image-column">
+                <div class="product-main-image-container">
+                    <img src="../ELORA/Images/Just-In/hair oil.jpeg" alt="Sunscreen Main View" class="carousel-image active-image" data-index="0">
+                    <img src="../ELORA/Images/Just-In/hair oil 1.jpg" alt="Sunscreen Application" class="carousel-image" data-index="1">
+                    <img src="../ELORA/Images/Just-In/hair oil 2.jpg" alt="Sunscreen Ingredients" class="carousel-image" data-index="2">
+                </div>
+                
+                <div class="image-thumbnails">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                </div>
+            </section>
+
+            <section class="product-info-column">
+                <button class="wishlist-btn" id="wishlist-btn">♡</button>
+                <h1 class="product-title">Bhringraj - Hair Oil</h1>
+                
+                <p class="product-description">
+                Transform your dry, dull ends into visible silk-shine. The Bhringraj Glowend Silk Oil is the essential +1 to restore deep nourishment and effortless smoothness to your daily routine.
+                </p>
+
+                <div class="product-meta">
+                    <p class="size">SIZE: 150ML</p>
+                    
+                    <div class="reviews">
+                        <span class="stars">★★★★★</span>
+                        <span class="review-count">108 Reviews</span>
+                        <span class="qa">13 Questions | 15 Answers</span>
+                    </div>
+                   
+                </div>
+
+                <p class="price">₹3,150.00 <span class="tax-info">(MRP INCLUSIVE OF ALL TAXES)</span></p>
+
+                <div class="add-to-cart-section">
+                    <div class="quantity-selector">
+                        <button class="qty-btn" id="qty-minus">-</button>
+                        <input type="text" id="qty-input" value="1" readonly>
+                        <button class="qty-btn" id="qty-plus">+</button>
+                    </div>
+                    <button class="add-to-bag-btn">ADD TO BAG</button>
+                </div>
+
+                <p class="shipping-info">Free shipping over INR 15,999/- for international and over INR 1000/- for domestic orders.</p>
+
+                <div class="delivery-options">
+                    <h2>Delivery Options</h2>
+                    <div class="pincode-check">
+                        <input type="text" id="pincode-input" placeholder="ENTER PIN CODE">
+                        <button class="check-btn" id="check-delivery">CHECK</button>
+                        <p class="delivery-time" id="delivery-message">Delivery outside India? Guaranteed dispatch within 48 Hrs.</p>
+                    </div>
+                </div>
+
+                <div class="product-actions">
+                <button class="action-btn" id="offers-modal-trigger">🎁 AVAILABLE OFFERS</button>
+                    <button class="action-btn">WHAT'S NEW</button>
+                </div>
+            </section>
+        </div>
+
+        <section class="product-details-tabs">
+        </section>
+    </main>
+
+
+
+<div id="offersModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 class="modal-title">Available Offers</h2>
+
+            <div class="offer-section weekend-delight">
+                <h3>🎉Weekend Delight</h3>
+                <p>Enjoy complimentary Gift Cards worth ₹1,100 on spends of ₹13,999/-. Valid in stores and online from November 7th to 9th.</p>
+            </div>
+
+            <div class="offer-section complimentary-samples">
+                <h3>🛍️Indulge in Complimentary Samples!</h3>
+                <p>Enjoy a curated selection of luxury samples with your purchase, based on your order value. T&C Apply subject to stock availability.</p>
+                
+                <ul class="sample-tiers">
+                    <li>• ₹999 - ₹2,999 — 2 Samples</li>
+                    <li>• ₹3,000 - ₹5,999 — 4 Samples</li>
+                    <li>• ₹6,000 - ₹11,999 — 6 Samples</li>
+                    <li>• ₹12,000 - ₹13,999 — 8 Samples</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<div id="whatsNewModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn-new">&times;</span>
+        <h2 class="modal-title">What's New ?</h2>
+
+        <div class="whats-new-content">
+            <ul class="new-list">
+                <li>
+                    <p>• <strong>Discover Solid Perfumes</strong> Moments that transcend time, encapsulated in a fragrance.</p>
+                </li>
+                <li>
+                    <p>• <strong> just in </strong> — 'Cologne: Musk, Lime & Patchouli': The scent of timeless summers.</p>
+                </li>
+                <li>
+                    <p>• <strong> A revolutionary age-defying serum ritual—Varuna & Samsara.</strong> iconic duo that gives results in 7 days comparable to conventional skin fillers.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+    <script>
+
+        // -----------------------------
+// ADD TO CART FOR BHRINGRAJ HAIR OIL
+// -----------------------------
+// -----------------------------
+// ADD TO CART FOR BHRINGRAJ HAIR OIL
+// -----------------------------
+document.addEventListener("DOMContentLoaded", () => {
+
+    const addBtn = document.querySelector(".add-to-bag-btn");
+
+    addBtn.addEventListener("click", function () {
+
+        const quantity = parseInt(document.getElementById("qty-input").value);
+
+        const product = {
+            id: "bhringraj-hair-oil-150ml",
+            name: "Bhringraj Hair Oil (150ml)",
+            price: 3150,
+            quantity: quantity,
+            image: "../ELORA/Images/Just-In/hair oil.jpeg"
+        };
+
+        let cart = JSON.parse(localStorage.getItem("elora_cart")) || [];
+
+        const existing = cart.find(item => item.id === product.id);
+
+        if (existing) {
+            existing.quantity += quantity;
+        } else {
+            cart.push(product);
+        }
+
+        localStorage.setItem("elora_cart", JSON.stringify(cart));
+
+        window.location.href = "Cart.html";
+    });
+
+});
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // --- 1. Quantity Selector Logic ---
+            const minusBtn = document.getElementById('qty-minus');
+            const plusBtn = document.getElementById('qty-plus');
+            const quantityInput = document.getElementById('qty-input');
+
+            if (minusBtn && plusBtn && quantityInput) {
+                minusBtn.addEventListener('click', function() {
+                    let currentQty = parseInt(quantityInput.value);
+                    if (currentQty > 1) {
+                        quantityInput.value = currentQty - 1;
+                    }
+                });
+
+                plusBtn.addEventListener('click', function() {
+                    let currentQty = parseInt(quantityInput.value);
+                    quantityInput.value = currentQty + 1;
+                });
+            }
+
+            // --- 2. Pincode Check Logic ---
+            const checkBtn = document.getElementById('check-delivery');
+            const pincodeInput = document.getElementById('pincode-input');
+            const deliveryTimeMsg = document.getElementById('delivery-message');
+
+            if (checkBtn && pincodeInput && deliveryTimeMsg) {
+                checkBtn.addEventListener('click', function() {
+                    const pincode = pincodeInput.value.trim();
+                    if (pincode.length === 6 && /^\d+$/.test(pincode)) {
+                        deliveryTimeMsg.innerHTML = '<span style="color: green;">✅ Delivery expected in **3-5 business days** for pincode ' + pincode + '.</span>';
+                    } else {
+                        deliveryTimeMsg.innerHTML = '<span style="color: red;">⚠️ Please enter a valid 6-digit Pincode.</span>';
+                    }
+                });
+            }
+            
+            // --- 3. WORKING Image Carousel/Dot Logic ---
+            const imageDots = document.querySelectorAll('.image-thumbnails .dot');
+            const carouselImages = document.querySelectorAll('.carousel-image');
+
+            if (imageDots.length > 0 && carouselImages.length > 0) {
+                imageDots.forEach(dot => {
+                    dot.addEventListener('click', function() {
+                        const targetIndex = this.getAttribute('data-index');
+
+                        carouselImages.forEach(img => {
+                            if (img.getAttribute('data-index') === targetIndex) {
+                                img.classList.add('active-image');
+                            } else {
+                                img.classList.remove('active-image');
+                            }
+                        });
+
+                        imageDots.forEach(d => d.classList.remove('active'));
+                        this.classList.add('active');
+                    });
+                });
+            }
+
+            // --- 4. Wishlist Button Functionality ---
+            const wishlistBtn = document.getElementById('wishlist-btn');
+
+            if (wishlistBtn) {
+                wishlistBtn.addEventListener('click', function() {
+                    if (wishlistBtn.textContent.trim() === '♡') {
+                        wishlistBtn.textContent = '♥';
+                        wishlistBtn.style.color = 'red'; 
+                    } else {
+                        wishlistBtn.textContent = '♡';
+                        wishlistBtn.style.color = ''; 
+                    }
+                });
+            }
+
+            // --- 5. Size Selector Logic (Handles potential size buttons, even if only one size is present) ---
+            const sizeOptions = document.querySelectorAll('.size-option');
+            if (sizeOptions.length > 0) {
+                 // Logic to set the first size as active if none are active by default
+                 if (!document.querySelector('.size-option.active')) {
+                     sizeOptions[0].classList.add('active');
+                 }
+                 
+                 sizeOptions.forEach(option => {
+                    option.addEventListener('click', function() {
+                        sizeOptions.forEach(opt => opt.classList.remove('active'));
+                        this.classList.add('active');
+                    });
+                });
+            }
+
+
+  // --- MODAL TOGGLE LOGIC (Primary focus for this request) ---
+            const offersModal = document.getElementById('offersModal');
+            const offersTriggerBtn = document.getElementById('offers-modal-trigger'); 
+            const closeBtn = document.querySelector('.close-btn');
+
+            if (offersTriggerBtn && offersModal && closeBtn) {
+                // Show modal on button click
+                offersTriggerBtn.addEventListener('click', function() {
+                    offersModal.style.display = 'flex'; // Shows the modal and centers it
+                });
+
+                // Hide modal when clicking the 'x'
+                closeBtn.addEventListener('click', function() {
+                    offersModal.style.display = 'none';
+                });
+                
+                // Hide modal when clicking the dark background area
+                window.addEventListener('click', function(event) {
+                    if (event.target === offersModal) {
+                        offersModal.style.display = 'none';
+                    }
+                });
+            }
+
+// --- NEW: What's New Modal Logic ---
+const whatsNewModal = document.getElementById('whatsNewModal');
+// Targeting the second button in the product-actions div
+const whatsNewTriggerBtn = document.querySelector('.product-actions .action-btn:last-child'); 
+const closeBtnNew = document.querySelector('.close-btn-new');
+
+if (whatsNewTriggerBtn && whatsNewModal && closeBtnNew) {
+    // Show modal on button click
+    whatsNewTriggerBtn.addEventListener('click', function() {
+        whatsNewModal.style.display = 'flex';
+    });
+
+    // Hide modal when clicking the 'x'
+    closeBtnNew.addEventListener('click', function() {
+        whatsNewModal.style.display = 'none';
+    });
+    
+    // Hide modal when clicking the dark background area
+    window.addEventListener('click', function(event) {
+        if (event.target === whatsNewModal) {
+            whatsNewModal.style.display = 'none';
+        }
+    });
+}
+
+        });
+    </script>
+
+
+<!---- Footer -->
+<footer class="footer">
+  <section class="footer-subscribe">
+    <h2>STAY UP TO DATE</h2>
+    <p>
+      Enter your email address to receive updates on new product previews, ad promotions, special offers and latest know-how on skincare routines.
+    </p>
+    <form class="subscribe-form">
+      <input type="email" placeholder="EMAIL" required>
+      <button type="submit">SUBSCRIBE</button>
+    </form>
+    <label class="checkbox">
+      <input type="checkbox">
+      <span>By proceeding ahead, I agree and accept Forest Essentials <a href="#">privacy policy</a> and <a href="#">terms</a>.</span>
+    </label>
+    <div class="store-locator">
+      <span class="location-icon">📍</span>
+      <span>FIND A STORE NEAR YOU</span>
+    </div>
+  </section>
+
+  <section class="footer-links">
+    <div class="footer-column">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#">MAKEUP</a></li>
+        <li><a href="#">FACIAL CARE</a></li>
+        <li><a href="#">BODY CARE</a></li>
+        <li><a href="#">HAIR CARE</a></li>
+        <li><a href="#">MEN'S CARE</a></li>
+        <li><a href="#">FRAGRANCE</a></li>
+        <li><a href="#">TRAVEL MINTS</a></li>
+        <li><a href="#">WELLNESS</a></li>
+        <li><a href="#">GIFTING</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>About</h4>
+      <ul>
+        <li><a href="#">OUR PHILOSOPHY</a></li>
+        <li><a href="#">SOCIAL RESPONSIBILITY</a></li>
+        <li><a href="#">MEDIA & PRESS</a></li>
+        <li><a href="#">POLICIES</a></li>
+        <li><a href="#">TERMS</a></li>
+        <li><a href="#">FAQS</a></li>
+        <li><a href="#">ELORA PRIVE FAQS</a></li>
+        <li><a href="#">CAREERS</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">MY ACCOUNT</a></li>
+        <li><a href="#">ELORA PRIVE SIGN IN</a></li>
+        <li><a href="#">CURRENT OFFERS</a></li>
+        <li><a href="#">STORES</a></li>
+        <li><a href="#">BLOG</a></li>
+        <li><a href="#">OUR INGREDIENTS</a></li>
+        <li><a href="#">FOREST ESSENTIALS UK</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Contact</h4>
+      <p>Email:<br><a href="mailto:service@eloraskincare.com">service@eloraskincare.com</a></p>
+      <p>Phone:<br>+91-8010200666</p>
+      <p><a href="#">Contact Us</a></p>
+    
+    <div class="social-icons">
+  <a href="#"><i class="fab fa-facebook-f"></i></a>
+  <a href="#"><i class="fab fa-instagram"></i></a>
+  <a href="#"><i class="fab fa-twitter"></i></a>       
+  <a href="#"><i class="fab fa-linkedin-in"></i></a>   
+  <a href="#"><i class="fab fa-youtube"></i></a>
+</div>
+    </div>
+  </section>
+
+  <!-- PAYMENT METHODS SECTION -->
+ <div class="payment-methods">
+    <h5>PAYMENT METHODS</h5>
+    <div class="payment-icons">
+      <img src="../ELORA/Images/logo-visa.png" alt="Visa">
+      <img src="../ELORA/Images/logo-Mastercard.jpeg" alt="MasterCard">
+      <img src="../ELORA/Images/logo-amx.jpeg" alt="American Express">
+      <img src="../ELORA/Images/logo-rupay.jpeg" alt="RuPay">
+      <img src="../ELORA/Images/logo-paypal.jpeg" alt="PayPal">
+      <img src="../ELORA/Images/logo-netbanking.png" alt="Net Banking">
+      <img src="../ELORA/Images/logo-cod.png" alt="Cash on Delivery">
+    </div>
+  </div>
+
+   <div class="copyright">
+    &copy; 2025 Elora. All rights reserved.
+  </div>
+</footer>
+
+
+</body>
+</html>

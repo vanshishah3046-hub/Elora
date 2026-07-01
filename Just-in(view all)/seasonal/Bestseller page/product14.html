@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gentle Eye Serum — Elora</title>
+
+  <!-- Bootstrap + Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --ivory: #fffdf8;
+      --text: #1f1f1f;
+      --muted: #666;
+    }
+    body {
+      background: var(--ivory);
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container { max-width: 1200px; margin: 28px auto; padding: 24px; }
+    /* Custom Breadcrumb Styling */
+.breadcrumb-row {
+    font-family: "Playfair Display", serif;
+    font-size: 14px;
+    color: #555;
+    margin: 20px 0 20px 30px;
+    letter-spacing: 1px;
+}
+
+.breadcrumb-row a {
+    color: #8B6D3F;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.breadcrumb-row a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-row span {
+    margin: 0 6px;
+}
+
+
+    .product-grid { display: flex; gap: 40px; flex-wrap: wrap; align-items: flex-start; }
+    .left { flex: 1 1 48%; }
+    .right { flex: 1 1 44%; }
+
+    .product-image {
+      background: #fff;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+      text-align: center;
+    }
+    .product-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      transition: transform .35s;
+    }
+    .product-image:hover img { transform: translateY(-6px); }
+
+    .product-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      margin: 0 0 10px;
+      font-weight: 700;
+    }
+    .divider {
+      width: 64px;
+      height: 2px;
+      background: var(--text);
+      margin: 10px 0 18px;
+    }
+    .subtitle { color: var(--muted); margin: 0 0 8px; font-size: 1rem; }
+    .price { font-weight: 700; font-size: 1.25rem; margin: 10px 0; }
+
+    .controls { display: flex; gap: 12px; margin-top: 18px; align-items: center; }
+    .select, .qty { border-radius: 8px; padding: 8px; border: 1px solid #e6e2db; }
+    .btn-add {
+      background: #1f1f1f;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .btn-add:hover { background: #111; }
+
+    .wishlist-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #eee;
+      background: #fff;
+      cursor: pointer;
+    }
+    .wishlist-btn.active {
+      background: #fff;
+      color: red;
+      border-color: #f5c6c6;
+    }
+
+    .recommend-section { margin-top: 60px; }
+    .recommend-section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .recommend-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .rec-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      cursor: pointer;
+      transition: transform .28s, box-shadow .28s;
+      border: 1px solid #000;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+    .rec-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+      background: #000;
+      color: #fff;
+    }
+    .rec-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .rec-body {
+      padding: 12px 14px;
+      text-align: center;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .rec-body h5 { font-size: 1rem; margin: 6px 0; font-weight: 700; }
+    .rec-body p { color: var(--muted); margin: 0 0 8px; }
+
+    .bs-toast { position: fixed; right: 20px; bottom: 20px; z-index: 2500; min-width: 260px; }
+
+    @media (max-width: 991.98px) {
+      .recommend-row { grid-template-columns: repeat(2, 1fr); }
+      .product-grid { flex-direction: column; }
+    }
+    @media (max-width: 575.98px) {
+      .recommend-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-row">
+      <a href="../../../index.html">Home</a> <span>&gt;</span>
+      <a href="index.html">Bestseller</a> <span>&gt;</span>
+      <span style="font-weight:700">Gentle Eye Serum</span>
+    </div>
+
+    <!-- Product grid -->
+    <div class="product-grid">
+      <div class="left">
+        <div class="product-image">
+          <img src="images/Gentle Eye Serum.png" alt="Gentle Eye Serum">
+        </div>
+      </div>
+
+      <div class="right">
+        <div style="display:flex;align-items:flex-start;gap:12px;">
+          <div style="flex:1">
+            <h1 class="product-title">Gentle Eye Serum</h1>
+            <div class="divider"></div>
+            <p class="subtitle">Reduces puffiness and fine lines</p>
+            <div class="price">₹545</div>
+          </div>
+          <div style="margin-left:auto">
+            <button id="pageWishlistBtn" class="wishlist-btn" aria-label="Add to wishlist" title="Add to wishlist">
+              <i id="pageWishlistIcon" class="fa-regular fa-heart" style="font-size:18px"></i>
+            </button>
+          </div>
+        </div>
+
+        <p id="productDescription" style="color:#444;line-height:1.7;margin-top:18px;">
+          A lightweight serum infused with botanical extracts that gently nourishes the delicate under-eye area, reducing puffiness and fine lines for bright, youthful eyes.
+        </p>
+
+        <div class="controls" style="margin-top:18px;">
+          <select id="sizeSelect" class="select" style="min-width:140px">
+            <option disabled selected>Select Size</option>
+            <option>15 ml</option>
+          </select>
+
+          <input id="qtyInput" class="qty" type="number" min="1" value="1" style="width:86px">
+          <button id="addToCartBtn" class="btn-add">Add to Bag</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- You may also like -->
+    <div class="recommend-section">
+      <h3>You may also like</h3>
+      <div class="recommend-row" id="recommendedProducts"></div>
+    </div>
+  </main>
+
+  <!-- Toast -->
+  <div class="bs-toast" aria-live="polite" aria-atomic="true">
+    <div id="bagToast" class="toast align-items-center text-white bg-dark border-0" role="alert">
+      <div class="d-flex">
+        <div class="toast-body">Added to bag</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+
+(function () {
+
+  const product = {
+    id: "gentle-eye-serum",
+    name: "Gentle Eye Serum",
+    price: 545,
+    image: "Just-in(view all)/seasonal/Bestseller page/images/Gentle Eye Serum.png"
+  };
+
+  function getCart() {
+    try { return JSON.parse(localStorage.getItem("elora_cart") || "[]"); }
+    catch { return []; }
+  }
+
+  function setCart(cart) {
+    localStorage.setItem("elora_cart", JSON.stringify(cart));
+  }
+
+  function addToCart() {
+    const qty = Math.max(1, parseInt(document.getElementById("qtyInput").value || "1"));
+
+    let cart = getCart();
+    let existing = cart.find(p => p.id === product.id);
+
+    if (existing) {
+      existing.quantity += qty;
+    } else {
+      cart.push({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        quantity: qty,
+        image: product.image
+      });
+    }
+
+    setCart(cart);
+
+    // Show toast
+    const toastEl = document.getElementById("bagToast");
+    if (toastEl) {
+      const toast = new bootstrap.Toast(toastEl);
+      toastEl.querySelector(".toast-body").textContent = `${product.name} added to bag`;
+      toast.show();
+    }
+
+    // Redirect to cart
+    setTimeout(() => {
+      window.location.href = "../../../Cart.html";
+    }, 500);
+  }
+
+  document.getElementById("addToCartBtn").addEventListener("click", addToCart);
+
+})();
+
+  (function(){
+    const product = {
+      key:'/Just-in(view all)/seasonal/Bestseller page/images/Gentle Eye Serum.png::Gentle Eye Serum',
+      title:'Gentle Eye Serum',
+      price:'₹545',
+      image:'/Just-in(view all)/seasonal/Bestseller page/images/Gentle Eye Serum.png'
+    };
+
+    function getCart(){try{return JSON.parse(localStorage.getItem('elora_cart')||'[]')}catch(e){return[]}}
+    function setCart(c){localStorage.setItem('elora_cart',JSON.stringify(c))}
+    function getWishlist(){try{return JSON.parse(localStorage.getItem('wishlist')||'[]')}catch(e){return[]}}
+    function setWishlist(w){localStorage.setItem('wishlist',JSON.stringify(w))}
+
+    const wlBtn=document.getElementById('pageWishlistBtn');
+    const wlIcon=document.getElementById('pageWishlistIcon');
+    function updateWishlistUI(){
+      const wl=getWishlist();
+      if(wl.includes(product.key)){
+        wlBtn.classList.add('active');
+        wlIcon.classList.replace('fa-regular','fa-solid');
+        wlIcon.style.color='red';
+      }else{
+        wlBtn.classList.remove('active');
+        wlIcon.classList.replace('fa-solid','fa-regular');
+        wlIcon.style.color='';
+      }
+    }
+    updateWishlistUI();
+    wlBtn.onclick=()=>{let wl=getWishlist();if(wl.includes(product.key))wl=wl.filter(k=>k!==product.key);else wl.push(product.key);setWishlist(wl);updateWishlistUI()}
+
+   
+
+    // You may also like
+    const recs=[
+      {title:'Advanced Hair Growth Serum',image:'./images/Advanced Hair Growth Serum.png',price:'₹745',href:'./product2.html'},
+      {title:'Kumkumadi Tailam',image:'./images/Kumkumadi Tailam.png',price:'₹1,495',href:'./product10.html'},
+     {title: 'Soundarya 24K Cream',image: './images/Soundaya 24k cream.png', price: '₹1,095',href: './product8.html'},      
+    {title:'Brightening Face Pack',image:'./images/Brightening Face Pack.png',price:'₹1,095',href:'./product13.html'}
+    ];
+    document.getElementById('recommendedProducts').innerHTML=recs.map(r=>`
+      <a class="rec-card" href="${r.href}" title="${r.title}">
+        <img src="${r.image}" alt="${r.title}">
+        <div class="rec-body"><h5>${r.title}</h5><p>${r.price}</p></div>
+      </a>`).join('');
+  })();
+  </script>
+</body>
+</html>

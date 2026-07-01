@@ -1,0 +1,122 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #fffaf5;
+  color: #2e2e2e;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  text-align: center;
+  padding: 60px 20px 30px;
+  background-color: #fff;
+  border-bottom: 2px solid #e6d5b8;
+}
+
+.header h1 {
+  font-family: "Times New Roman", serif;
+  font-size: 48px;
+  color: #b29064;
+  letter-spacing: 1px;
+}
+
+.header .tagline {
+  font-size: 16px;
+  color: #555;
+  margin-top: 10px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.privilege-card {
+  flex: 1 1 400px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+  padding: 40px;
+  text-align: center;
+  border: 1px solid #e6d5b8;
+}
+
+.privilege-card h2 {
+  font-family: "Times New Roman", serif;
+  color: #a67c52;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.privilege-card p {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+.privilege-form input {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.privilege-form button {
+  background-color: #a67c52;
+  color: #fff;
+  border: none;
+  padding: 12px 50px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.privilege-form button:hover {
+  background-color: #8c6a44;
+}
+
+#message {
+  margin-top: 15px;
+}
+
+.success {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.error {
+  color: #b71c1c;
+  font-weight: 600;
+}
+
+.benefits {
+  flex: 1 1 300px;
+  background: #fdf8f3;
+  border: 1px solid #e6d5b8;
+  border-radius: 16px;
+  padding: 30px;
+}
+
+.benefits h3 {
+  color: #a67c52;
+  font-size: 24px;
+  font-family: "Times New Roman", serif;
+  margin-bottom: 15px;
+}
+
+.benefits ul {
+  list-style: none;
+  padding: 0;
+}
+
+.benefits li {
+  margin-bottom: 10px;
+  font-size: 15px;
+}

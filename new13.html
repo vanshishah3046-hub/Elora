@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aloe Vera Gel</title>
+  <link rel="stylesheet" href="../ELORA/new1.css">
+</head>
+<body>
+
+  <main class="product-page-container">
+    <div class="breadcrumb">
+      <a href="../ELORA/Just-in(view all)/view.html">NEW ARRIVALS</a>
+      <span>›</span>
+      <span>ALOE VERA GEL</span>
+    </div>
+
+    <div class="product-detail-layout">
+      <!-- Left Column - Product Images -->
+      <section class="product-image-column">
+        <div class="product-main-image-container">
+          <img src="../ELORA/New Arrivals/aloeveragel1.jpg"Aloe Vera Gel Image 1" class="carousel-image active-image" data-index="0">
+          <img src="../ELORA/New Arrivals/aloeveragel2.jpg" alt="Aloe Vera Gel Image 2" class="carousel-image" data-index="1">
+        </div>
+        <div class="image-thumbnails">
+          <span class="dot active" data-index="0"></span>
+          <span class="dot" data-index="1"></span>
+        </div>
+      </section>
+
+      <!-- Right Column - Product Info -->
+      <section class="product-info-column">
+        <button class="wishlist-btn" id="wishlist-btn">♡</button>
+        <h1 class="product-title">Aloe Vera Gel</h1>
+        <p class="product-description">
+          The Aloe Vera Gel is a soothing, lightweight moisturizer enriched with pure Aloe Vera extract. 
+          It hydrates, cools, and calms irritated skin while promoting a smooth, healthy glow. 
+          Suitable for all skin types and perfect for daily use.
+        </p>
+
+        <div class="product-meta">
+          <p class="size">SIZE: 100G</p>
+          <div class="reviews">
+            <span class="stars">★★★★★</span>
+            <span class="review-count">612 Reviews</span>
+            <span class="qa">53 Questions | 98 Answers</span>
+          </div>
+        </div>
+
+        <p class="price">₹4200.00 <span class="tax-info">(MRP INCLUSIVE OF ALL TAXES)</span></p>
+
+        <div class="add-to-cart-section">
+          <div class="quantity-selector">
+            <button class="qty-btn" id="qty-minus">-</button>
+            <input type="text" id="qty-input" value="1" readonly>
+            <button class="qty-btn" id="qty-plus">+</button>
+          </div>
+          <button class="add-to-bag-btn">ADD TO BAG</button>
+        </div>
+
+        <p class="shipping-info">
+          Free shipping over INR 15,999/- for international and over INR 1000/- for domestic orders.
+        </p>
+
+        <div class="delivery-options">
+          <h2>Delivery Options</h2>
+          <div class="pincode-check">
+            <input type="text" id="pincode-input" placeholder="ENTER PIN CODE">
+            <button class="check-btn" id="check-delivery">CHECK</button>
+            <p class="delivery-time" id="delivery-message">Delivery outside India? Guaranteed dispatch within 48 Hrs.</p>
+          </div>
+        </div>
+
+        <div class="product-actions">
+          <button class="action-btn" id="offers-modal-trigger">🎁 AVAILABLE OFFERS</button>
+          <button class="action-btn">WHAT'S NEW</button>
+        </div>
+      </section>
+    </div>
+
+    <section class="product-details-tabs"></section>
+  </main>
+
+  <!-- OFFERS MODAL -->
+  <div id="offersModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2 class="modal-title">Available Offers</h2>
+
+      <div class="offer-section weekend-delight">
+        <h3>🌿 Aloe Vera Special Offer</h3>
+        <p>Buy 2 Aloe Vera Gel jars and get 1 FREE. Use code <strong>ALOECARE</strong> at checkout.</p>
+      </div>
+
+      <div class="offer-section complimentary-samples">
+        <h3>🛍️ Complimentary Samples</h3>
+        <p>Enjoy complimentary skincare samples with every order. T&C Apply.</p>
+        <ul class="sample-tiers">
+          <li>• ₹999 – ₹2,999 — 2 Samples</li>
+          <li>• ₹3,000 – ₹5,999 — 4 Samples</li>
+          <li>• ₹6,000 – ₹11,999 — 6 Samples</li>
+          <li>• ₹12,000 – ₹13,999 — 8 Samples</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT'S NEW MODAL -->
+  <div id="whatsNewModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn-new">&times;</span>
+      <h2 class="modal-title">What's New?</h2>
+      <div class="whats-new-content">
+        <ul class="new-list">
+          <li><p>• <strong>New Launch:</strong> Aloe Vera Gel — hydrates, cools, and calms skin naturally.</p></li>
+          <li><p>• <strong>Now Trending:</strong> Anti-Aging Elixir — restores youthful radiance and smoothness.</p></li>
+          <li><p>• <strong>Coming Soon:</strong> Cucumber Hydration Mist — refreshing face mist for daily glow.</p></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+(function () {
+
+  const product = {
+    id: "aloe-vera-gel-100g",
+    name: "Aloe Vera Gel",
+    price: 4200,
+    image: "../ELORA/New Arrivals/aloeveragel1.jpg"
+  };
+
+  function getCart() {
+    try { return JSON.parse(localStorage.getItem("elora_cart") || "[]"); }
+    catch { return []; }
+  }
+
+  function setCart(cart) {
+    localStorage.setItem("elora_cart", JSON.stringify(cart));
+  }
+
+  function addToCart() {
+    const qty = Math.max(1, parseInt(document.getElementById("qty-input").value || "1"));
+
+    let cart = getCart();
+    const existing = cart.find(item => item.id === product.id);
+
+    if (existing) {
+      existing.quantity += qty;
+    } else {
+      cart.push({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        quantity: qty,
+        image: product.image
+      });
+    }
+
+    setCart(cart);
+
+    setTimeout(() => {
+      window.location.href = "../ELORA/cart.html";
+    }, 300);
+  }
+
+  document.querySelector(".add-to-bag-btn").addEventListener("click", addToCart);
+
+})();
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const minusBtn = document.getElementById('qty-minus');
+      const plusBtn = document.getElementById('qty-plus');
+      const qtyInput = document.getElementById('qty-input');
+      minusBtn.addEventListener('click', () => {
+        let val = parseInt(qtyInput.value);
+        if (val > 1) qtyInput.value = val - 1;
+      });
+      plusBtn.addEventListener('click', () => {
+        qtyInput.value = parseInt(qtyInput.value) + 1;
+      });
+
+      document.getElementById('check-delivery').addEventListener('click', () => {
+        const pin = document.getElementById('pincode-input').value.trim();
+        const msg = document.getElementById('delivery-message');
+        if (pin.length === 6 && /^\d+$/.test(pin)) {
+          msg.innerHTML = '<span style="color:green;">✅ Delivery in 3–5 business days for pincode ' + pin + '</span>';
+        } else {
+          msg.innerHTML = '<span style="color:red;">⚠️ Enter valid 6-digit pincode.</span>';
+        }
+      });
+
+      const dots = document.querySelectorAll('.dot');
+      const imgs = document.querySelectorAll('.carousel-image');
+      dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+          const index = this.getAttribute('data-index');
+          imgs.forEach(img => img.classList.remove('active-image'));
+          imgs[index].classList.add('active-image');
+          dots.forEach(d => d.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+
+      const wishlist = document.getElementById('wishlist-btn');
+      wishlist.addEventListener('click', () => {
+        if (wishlist.textContent === '♡') {
+          wishlist.textContent = '♥';
+          wishlist.style.color = 'red';
+        } else {
+          wishlist.textContent = '♡';
+          wishlist.style.color = '';
+        }
+      });
+
+      const offersModal = document.getElementById('offersModal');
+      document.getElementById('offers-modal-trigger').addEventListener('click', () => offersModal.style.display = 'flex');
+      document.querySelector('.close-btn').addEventListener('click', () => offersModal.style.display = 'none');
+
+      const whatsNewModal = document.getElementById('whatsNewModal');
+      document.querySelector('.product-actions .action-btn:last-child').addEventListener('click', () => whatsNewModal.style.display = 'flex');
+      document.querySelector('.close-btn-new').addEventListener('click', () => whatsNewModal.style.display = 'none');
+    });
+  </script>
+
+  <footer class="footer">
+    <section class="footer-subscribe">
+      <h2>STAY UP TO DATE</h2>
+      <p>Enter your email address to receive updates on new product previews, special offers, and skincare routines.</p>
+      <form class="subscribe-form">
+        <input type="email" placeholder="EMAIL" required>
+        <button type="submit">SUBSCRIBE</button>
+      </form>
+      <label class="checkbox">
+        <input type="checkbox">
+        <span>By proceeding, I agree and accept Elora’s <a href="#">privacy policy</a> and <a href="#">terms</a>.</span>
+      </label>
+      <div class="store-locator">
+        <span class="location-icon">📍</span>
+        <span>FIND A STORE NEAR YOU</span>
+      </div>
+    </section>
+  </footer>
+
+</body>
+</html>

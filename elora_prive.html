@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elora Privé | Premium Access</title>
+  <link rel="stylesheet" href="elora_prive.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Elora Privé</h1>
+    <p class="tagline">Exclusive Access for Our Radiant Members</p>
+  </header>
+
+  <main class="container">
+    <section class="privilege-card">
+      <h2>Welcome to Elora Privé</h2>
+      <p>Discover premium skincare rituals, early product launches, and exclusive member-only benefits.</p>
+
+      <form id="prive-form" method="POST" class="privilege-form">
+        <input type="email" name="email" placeholder="Registered Email" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <div class="buttons">
+          <button type="submit" name="action" value="login">Enter Privé Access</button>
+          <button type="submit" name="action" value="register">Register</button>
+        </div>
+      </form>
+
+      <div id="message"></div>
+    </section>
+
+    <section class="benefits">
+      <h3>Your Privé Benefits</h3>
+      <ul>
+        <li>💫 Early access to new Elora Formulas</li>
+        <li>🎁 Complimentary Samples with Every Order</li>
+        <li>💌 Personal Skincare Consultation</li>
+        <li>🌸 Exclusive Member-only Discounts and Rewards</li>
+        <li>🎀 Limited Edition Product Launches</li>
+        <li>💎 Invitations to Special Elora Events</li>
+        <li>🚚 Priority Shipping on all Orders</li>
+        <li>🎂 Birthday Gift Surprises Each Year</li>
+        <li>🔮 Personalized Product Recommendations</li>
+        <li>📚 Access to Skincare Tips & Tutorials</li>
+        <li>💖 Members-only Loyalty Points and Perks</li>
+        <li>🏷️ Exclusive Flash Sales for Members</li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+ const form = document.getElementById('prive-form');
+
+let clickedAction = ''; // store which button was clicked
+
+// Listen for button clicks
+form.querySelectorAll('button[name="action"]').forEach(button => {
+  button.addEventListener('click', (e) => {
+    clickedAction = e.target.value;
+  });
+});
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const data = new FormData(form);
+
+  // Add the clicked button's action to the form data
+  data.set('action', clickedAction);
+
+  const response = await fetch('elora_prive_register.php', { method: 'POST', body: data });
+  const result = await response.json();
+
+  if (result.success) {
+    document.getElementById('message').innerHTML = '<p class="success">' + result.message + '</p>';
+  } else {
+    document.getElementById('message').innerHTML = '<p class="error">' + result.message + '</p>';
+  }
+});
+
+  </script>
+</body>
+</html>

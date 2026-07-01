@@ -1,0 +1,82 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #fff9f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.register-container {
+  background: #fff;
+  padding: 40px 50px;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  width: 380px;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Times New Roman', serif;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #111;
+}
+
+.register-btn {
+  width: 100%;
+  background-color: #111;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  background-color: #333;
+}
+
+.login-link {
+  margin-top: 15px;
+  font-size: 13px;
+  color: #555;
+}
+
+.login-link a {
+  color: #000;
+  text-decoration: underline;
+}

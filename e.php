@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elora Privé | Premium Access</title>
+  <link rel="stylesheet" href="../ELORA/elora_prive.css" />
+  <style>
+    body { font-family: 'Playfair Display', serif; background-color: #fff8f5; color: #5a2b5c; margin: 0; }
+    .hero { background: url('your-background.jpg') center/cover no-repeat; height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; }
+    .hero-content h1 { font-size: 3rem; margin-bottom: 10px; }
+    .hero-content p { font-size: 1.2rem; margin-bottom: 20px; }
+    .btn-privé { background-color: #8e4585; color: #fff; border: none; padding: 12px 30px; border-radius: 25px; font-size: 1rem; cursor: pointer; transition: 0.3s; }
+    .btn-privé:hover { background-color: #5a2b5c; }
+    .benefits { padding: 50px 20px; text-align: center; }
+    .benefits h2 { font-size: 2rem; margin-bottom: 30px; }
+    .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .benefit-card { background-color: #fff0f5; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); font-size: 1.1rem; transition: transform 0.3s; }
+    .benefit-card:hover { transform: translateY(-5px); }
+
+    /* Modal styling */
+    .modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(90,43,92,0.8); align-items:center; justify-content:center; }
+    .modal-content { background: #fff8f5; padding: 30px; border-radius: 20px; text-align:center; position: relative; width: 90%; max-width: 400px; }
+    .close-btn { position:absolute; top:15px; right:20px; font-size:1.5rem; cursor:pointer; }
+    .modal-content input { width: 90%; padding:10px; margin:10px 0; border-radius:10px; border:1px solid #ccc; }
+    .modal-content button { padding:10px 25px; margin:5px; border:none; border-radius:20px; cursor:pointer; background:#8e4585; color:#fff; }
+    .modal-content button:hover { background:#5a2b5c; }
+    #message { margin-top:10px; font-weight:bold; color:#5a2b5c; }
+    .success { color: green; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Elora Privé</h1>
+      <p>Exclusive Access for Our Radiant Members</p>
+      <button class="btn-privé" id="join-btn">Join Privé</button>
+    </div>
+  </header>
+
+  <!-- Privé Benefits -->
+  <section class="benefits">
+    <h2>Privé Benefits ✨</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">💫 Early access to new Elora formulas</div>
+      <div class="benefit-card">🎁 Complimentary samples with every order</div>
+      <div class="benefit-card">💌 Personalized skincare consultation</div>
+      <div class="benefit-card">🌸 Exclusive member-only discounts & rewards</div>
+      <div class="benefit-card">💎 Invitations to special Elora events</div>
+      <div class="benefit-card">🚚 Priority shipping on all orders</div>
+      <div class="benefit-card">🎂 Birthday gift surprises each year</div>
+      <div class="benefit-card">📖 Access to skincare tips & tutorials</div>
+    </div>
+  </section>
+
+  <!-- Modal Login/Register -->
+  <div class="modal" id="prive-modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h3>Welcome to Elora Privé</h3>
+      <form id="prive-form">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <div>
+          <button type="submit" name="action" value="register">Register</button>
+          <button type="submit" name="action" value="login">Login</button>
+        </div>
+      </form>
+      <div id="message"></div>
+    </div>
+  </div>
+
+  <script>
+    // Modal open/close
+    const modal = document.getElementById('prive-modal');
+    const joinBtn = document.getElementById('join-btn');
+    const closeBtn = document.querySelector('.close-btn');
+    let clickedAction = '';
+
+    joinBtn.onclick = () => modal.style.display = 'flex';
+    closeBtn.onclick = () => modal.style.display = 'none';
+    window.onclick = (e) => { if(e.target == modal) modal.style.display = 'none'; }
+
+    // Detect which button is clicked
+    document.querySelectorAll('#prive-form button[name="action"]').forEach(btn => {
+      btn.addEventListener('click', (e)=> { clickedAction = e.target.value; });
+    });
+
+    // Handle form submit
+    const form = document.getElementById('prive-form');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      data.set('action', clickedAction); // set which button was clicked
+      const response = await fetch('elora_prive_register.php', { method: 'POST', body: data });
+      const result = await response.json();
+      if(result.success) {
+        document.getElementById('message').innerHTML = '<p class="success">' + result.message + '</p>';
+      } else {
+        document.getElementById('message').innerHTML = '<p class="error">' + result.message + '</p>';
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sheer Sun Fluid — SPF 50 — Elora</title>
+
+  <link rel="stylesheet" href="../ELORA/style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    :root { --ivory:#fffdf8; --text:#1f1f1f; --border:#e8e4dd; }
+    body { background:var(--ivory); color:var(--text); font-family:'Segoe UI',sans-serif; margin:0; }
+    .product-page{max-width:1200px;margin:32px auto;padding:24px;}
+    a.back-btn{display:inline-block;color:var(--text);text-decoration:none;margin-bottom:22px;font-size:0.95rem;transition:color .25s;}
+    a.back-btn:hover{color:#888;}
+    .product-grid{display:flex;gap:40px;flex-wrap:wrap;align-items:flex-start;}
+    .left{flex:1 1 48%;}
+    .right{flex:1 1 44%;}
+    .product-image{background:#fff;padding:20px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.06);text-align:center;}
+    .product-image img{max-width:100%;height:auto;object-fit:contain;transition:transform .35s ease;}
+    .product-image:hover img{transform:translateY(-6px);}
+    .product-title{font-family:'Playfair Display',serif;font-size:2rem;margin:0 0 10px;}
+    .divider{width:64px;height:2px;background:var(--text);margin:10px 0 18px;}
+    .subtitle{color:#666;font-size:1rem;margin:0 0 10px;}
+    .price{font-weight:700;font-size:1.25rem;margin:10px 0;}
+    .controls{display:flex;gap:12px;margin-top:18px;align-items:center;}
+    .select,.qty{border:1px solid var(--border);border-radius:8px;padding:8px;}
+    .btn-add{background:#1f1f1f;color:#fff;padding:10px 18px;border-radius:8px;border:none;cursor:pointer;transition:background .25s;}
+    .btn-add:hover{background:#333;}
+    .product-wishlist{width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;border:1px solid #eee;background:#fff;cursor:pointer;transition:background .25s;}
+    .product-wishlist:hover{background:#f9f9f9;}
+    .recommend-section{margin-top:60px;}
+    .recommend-section h3{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:22px;}
+    .recommend-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;}
+    .rec-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,0.05);cursor:pointer;transition:transform .3s,box-shadow .3s;}
+    .rec-card:hover{transform:translateY(-6px);box-shadow:0 6px 20px rgba(0,0,0,0.08);}
+    .rec-card img{width:100%;height:240px;object-fit:cover;}
+    .rec-card strong{font-size:1rem;display:block;margin-bottom:4px;}
+    .rec-card span{font-size:0.9rem;color:#666;}
+    .floating-add-bar{display:none;}
+    @media(max-width:767.98px){.product-grid{flex-direction:column;}
+    .floating-add-bar{display:block;position:fixed;bottom:0;left:0;right:0;background:var(--ivory);padding:10px 16px;border-top:1px solid #eaeaea;z-index:1200;box-shadow:0 -6px 18px rgba(0,0,0,0.06);}}
+  </style>
+</head>
+<body>
+<main class="product-page">
+  <a class="back-btn" href="../ELORA/index.html">&larr; Back to Seasonal Indulgences</a>
+  <div class="product-grid">
+    <div class="left">
+      <div class="product-image">
+        <img src="../ELORA/Images/Seasonal Product 3.avif" alt="Sheer Sun Fluid — SPF 50">
+      </div>
+    </div>
+    <div class="right">
+      <div style="display:flex;align-items:flex-start;gap:12px;">
+        <div style="flex:1">
+          <h1 class="product-title">Sheer Sun Fluid — SPF 50</h1>
+          <div class="divider"></div>
+        </div>
+        <div class="ms-auto">
+          <button id="pageWishlistBtn" class="product-wishlist wishlist-btn"><i id="pageWishlistIcon" class="fa-regular fa-heart"></i></button>
+        </div>
+      </div>
+      <p class="subtitle">Lightweight, Broad Spectrum UV Protection</p>
+      <div class="price">₹1,850</div>
+      <div class="controls">
+        <select id="sizeSelect" class="select"><option selected>100 ml</option></select>
+        <input id="qtyInput" class="qty" type="number" min="1" value="1" style="width:86px">
+        <button id="addToCartBtn" class="btn-add">Add to Bag</button>
+      </div>
+      <p class="product-description">A feather-light, non-greasy SPF 50 fluid enriched with saffron and aloe vera to protect against UV rays, hydrate skin, and leave a sheer matte finish perfect for everyday wear.</p>
+    </div>
+  </div>
+
+  <div class="recommend-section">
+    <h3>You May Also Like</h3>
+    <div class="recommend-row" id="recommendedProducts"></div>
+  </div>
+</main>
+
+<div class="floating-add-bar d-md-none">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <div>
+      <div style="font-weight:600">Sheer Sun Fluid — SPF 50</div>
+      <div style="font-size:0.95rem;color:#444">₹1,850</div>
+    </div>
+    <button id="floatingAddBtn" class="btn-add">Add to Bag</button>
+  </div>
+</div>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index:2000">
+  <div id="bagToast" class="toast align-items-center text-white bg-dark border-0">
+    <div class="d-flex">
+      <div class="toast-body">Added to bag</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function(){
+
+  const product = {
+    id: "sun-fluid-spf50-100ml",
+    name: "Sheer Sun Fluid — SPF 50",
+    price: 1850,
+    image: "../ELORA/Images/Seasonal Product 3.avif"
+  };
+
+  function getCart(){
+    try { return JSON.parse(localStorage.getItem("elora_cart") || "[]"); }
+    catch { return []; }
+  }
+
+  function setCart(c){
+    localStorage.setItem("elora_cart", JSON.stringify(c));
+  }
+
+  function getWishlist(){
+    try { return JSON.parse(localStorage.getItem("wishlist") || "[]"); }
+    catch { return []; }
+  }
+
+  function setWishlist(w){
+    localStorage.setItem("wishlist", JSON.stringify(w));
+  }
+
+  // --------------------------
+  // Wishlist UI
+  // --------------------------
+  const btn = document.getElementById("pageWishlistBtn");
+  const icon = document.getElementById("pageWishlistIcon");
+
+  function updateWL(){
+    const w = getWishlist();
+    if(w.includes(product.id)){
+      icon.classList.replace("fa-regular","fa-solid");
+    } else {
+      icon.classList.replace("fa-solid","fa-regular");
+    }
+  }
+  updateWL();
+
+  btn.addEventListener("click", () => {
+    let w = getWishlist();
+    if(w.includes(product.id)){
+      w = w.filter(k => k !== product.id);
+    } else {
+      w.push(product.id);
+    }
+    setWishlist(w);
+    updateWL();
+  });
+
+  // --------------------------
+  // ADD TO CART (FULLY FIXED)
+  // --------------------------
+  function addToCart(){
+    const qty = Math.max(1, parseInt(document.getElementById("qtyInput").value || "1"));
+
+    let cart = getCart();
+
+    const item = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity: qty,
+      image: product.image
+    };
+
+    const existing = cart.find(p => p.id === item.id);
+
+    if(existing){
+      existing.quantity += qty;
+    } else {
+      cart.push(item);
+    }
+
+    setCart(cart);
+
+    // Toast message
+    const toastEl = document.getElementById("bagToast");
+    if(toastEl){
+      const t = new bootstrap.Toast(toastEl);
+      document.querySelector("#bagToast .toast-body").textContent = `${product.name} added to bag`;
+      t.show();
+    }
+
+    // Redirect to cart
+    setTimeout(() => {
+      window.location.href = "../ELORA/cart.html";
+    }, 500);
+  }
+
+  document.getElementById("addToCartBtn").addEventListener("click", addToCart);
+  document.getElementById("floatingAddBtn").addEventListener("click", addToCart);
+
+  // --------------------------
+  // Recommended Products
+  // --------------------------
+  const recs = [
+    {title:'Transformative Soundarya Night Cream', image:'../ELORA/Images/Seasonal Product 2.avif', price:'₹2,950', id:'product2.html'},
+    {title:'Tejasvi Brightening Ghee Cream', image:'../ELORA/Images/Seasonal Product 5.avif', price:'₹2,100', id:'product5.html'},
+    {title:'Nourishing Hair Oil — Brahmi & Almond', image:'../ELORA/Images/Seasonal Product 6.avif', price:'₹1,600', id:'product6.html'},
+    {title:'Hair Conditioner — Amla, Honey & Mulethi', image:'../ELORA/Images/Seasonal Product 1.avif', price:'₹1,450', id:'product1.html'}
+  ];
+
+  document.getElementById("recommendedProducts").innerHTML = recs.map(r => `
+    <div class="rec-card" onclick="location.href='${r.id}'">
+      <img src="${r.image}" alt="${r.title}">
+      <div style="padding:10px 12px;">
+        <strong>${r.title}</strong>
+        <span>${r.price}</span>
+      </div>
+    </div>
+  `).join("");
+
+})();
+</script>
+
+
+</body>
+</html>

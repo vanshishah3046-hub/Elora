@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | ELORA</title>
+  <link rel="stylesheet" href="../ELORA/Checkout.css">
+</head>
+
+<body>
+
+  <div class="checkout-container">
+
+    <h2>Checkout</h2>
+
+    <div class="section">
+      <h3>Shipping Details</h3>
+      <form id="checkoutForm">
+        <input type="text" id="name" placeholder="Full Name">
+        <input type="text" id="mobile" placeholder="Mobile Number">
+        <input type="text" id="address" placeholder="Full Address">
+        <input type="text" id="city" placeholder="City">
+        <input type="text" id="pincode" placeholder="Pincode">
+      </form>
+    </div>
+
+    <div class="section">
+      <h3>Payment Method</h3>
+
+      <label class="payment-option">
+        <input type="radio" name="payment" value="cod">
+        Cash on Delivery
+      </label>
+
+      <label class="payment-option">
+        <input type="radio" name="payment" value="online">
+        Online Payment (UPI)
+      </label>
+      
+
+      <!-- QR SECTION (hidden by default) -->
+      <div id="qrSection" style="display: none;">
+        <h4>Scan to Pay</h4>
+
+        <!-- User will upload QR here -->
+        <img id="qrImage" src="../ELORA/Images/Qr.jpeg" alt="QR Code">
+
+        <p class="timer-text">Time left: <span id="timer">02:00</span></p>
+      </div>
+    </div>
+
+    <button id="placeOrderBtn" class="place-btn">Place Order</button>
+
+  </div>
+
+  <script src="../ELORA/Checkout.js"></script>
+
+</body>
+
+</html>

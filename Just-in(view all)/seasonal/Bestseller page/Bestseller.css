@@ -1,0 +1,229 @@
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background-color: white;
+    color: #333;
+  }
+
+ /* BreadCrumbing */
+.breadcrumb {
+  font-size: 14px;
+  color: #555;
+  margin: 20px 0 20px 30px;
+  font-family: "Playfair Display", serif;
+  letter-spacing: 1px;
+
+  /* Override Bootstrap */
+  background: none !important;
+  padding: 0 !important;
+  display: inline-block !important;
+  border-radius: 0 !important;
+}
+
+.breadcrumb a {
+  color: #8B6D3F;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb span {
+  margin: 0 6px;
+}
+
+
+
+  .title-section {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: black;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    margin-top: 30px;
+  }
+
+  .filters {
+    background: white;
+    margin-top: 40px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    position: sticky;
+    top: 20px;
+  }
+
+  .filter-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: black;
+    text-transform: uppercase;
+    border-bottom: 1px solid #e6dacd;
+    padding-bottom: 10px;
+  }
+
+  .form-label {
+    font-weight: 600;
+    color: black;
+  }
+
+  .product-card {
+    background: white;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+
+  .product-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+  .card-body {
+    padding: 15px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    min-height: 48px;
+  }
+
+  .card-text {
+      font-size: 0.85rem;
+      color: grey;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+
+    .rating {
+      color: #d4af37;
+      margin-bottom: 6px;
+    }
+
+  .price {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: auto;
+  }
+
+  .sort-section {
+    text-align: end;
+    margin-bottom: 20px;
+  }
+
+  .pagination {
+    justify-content: center;
+    padding-top: 30px;
+  }
+
+  .btn-outline-dark {
+    border-radius: 25px;
+    padding: 8px 20px;
+    transition: all 0.3s;
+    font-weight: 600;
+    margin-top: 16px;
+  }
+
+  .btn-outline-dark:hover {
+    background-color: black;
+    color: white;
+    border-color: black;
+  }
+
+ .wishlist {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.4rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.wishlist.active {
+  color: red;
+}
+
+
+.badge-label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #f4e6d7;
+    color: #5c3d2e;
+    font-size: 0.7rem;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+  @media (max-width: 768px) {
+    .filters {
+      margin-bottom: 20px;
+    }
+
+    .sort-section {
+      text-align: left;
+ }
+}
+
+
+/* Heading style  */
+.new-arrivals-heading {
+  font-size: 45px;
+  font-weight: 400;
+  font-family: 'Times New Roman', serif;
+  color: #1a1a1ab6;
+  text-align: center;
+  letter-spacing: 0.5px;
+  margin-bottom: 30px;
+}
+
+.sort-view-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  margin-top: -50px; /* Adjust as per your design */
+}
+
+
+.sort-dropdown select {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  font-family: 'Arial', sans-serif;
+}
+
+/* small niceties */
+.card.product-card .product-image { transition: transform .45s ease, filter .35s ease; }
+.card.product-card:hover .product-image { transform: scale(1.03); filter: saturate(1.03); }
+#bs-toast-container .toast { min-width: 220px; }

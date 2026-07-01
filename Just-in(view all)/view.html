@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Arrivals – Elora</title>
+  <link rel="stylesheet" href="../Just-in(view all)/view.css">
+</head>
+<body>
+
+   
+  <!-- New Arrivals Heading Section -->
+  <section class="new-arrivals-section">
+    <div class="container">
+      <h1 class="new-arrivals-heading">New Arrivals</h1>
+    </div>
+  </section>
+
+  <div class="sort-view-wrapper">
+    
+
+    <!-- Dropdown below icons -->
+    <div class="sort-dropdown">
+      <select id="sort-options">
+        <option value="bestseller">BESTSELLER</option>
+        <option value="low-to-high">PRICE (LOWEST FIRST)</option>
+        <option value="high-to-low">PRICE (HIGHEST FIRST)</option>
+      </select>
+    </div>
+  </div>
+
+ <!-- Breadcrumb -->
+  <div class="breadcrumb">
+  <a href="../index.html">HOME</a> 
+  <span>›</span>
+  <span>NEW ARRIVALS</span>
+</div>
+  <div class="layout-container">
+    <aside class="sidebar">
+    
+      
+  
+
+   <div class="filter-section">
+   <h3 class="filter-title">FILTER</h3>
+   
+   
+
+   
+   
+   <div class="ingredient-section">
+    <div class="ingredient-header">
+      <span class="ingredient-title">INGREDIENT</span>
+      <span class="arrow">&#9650;</span>
+     </div>
+
+     <div class="ingredient-scroll hidden">
+  <label><input type="checkbox"> 7-D HYALURONIC ACID</label>
+  <label><input type="checkbox"> 24K GOLD</label>
+  <label><input type="checkbox"> ACETYL HEXAPEPTIDE-8</label>
+  <label><input type="checkbox"> ALOE VERA 200X</label>
+  <label><input type="checkbox"> ALOE VERA JUICE</label>
+  <label><input type="checkbox"> ANANTMOOL</label>
+  <label><input type="checkbox"> APRICOT OIL</label>
+  <label><input type="checkbox"> ASHWAGANDHA</label>
+  <label><input type="checkbox"> BAOBAB FRUIT PULP EXTRACT</label>
+  <label><input type="checkbox"> BETAINE</label>
+  <label><input type="checkbox"> BURNT CANE SUGAR</label>
+  <label><input type="checkbox"> COCONUT OIL</label>
+  <label><input type="checkbox"> CONCENTRATED VITAMIN C</label>
+  <label><input type="checkbox"> COPPER TRIPEPTIDE</label>
+  <label><input type="checkbox"> COW'S MILK</label>
+  <label><input type="checkbox"> FERMENTED TVACHYA SUPER VITAL COMPLEX</label>
+  <label><input type="checkbox"> GOKHARU</label>
+  <label><input type="checkbox"> GOTUKOLA SEED EXTRACT</label>
+  <label><input type="checkbox"> HYALURONIC ACID</label>
+  <label><input type="checkbox"> JAGGERY</label>
+  <label><input type="checkbox"> JASMINE</label>
+  <label><input type="checkbox"> KASHMIRI SAFFRON</label>
+  <label><input type="checkbox"> KASTURI MANJAL</label>
+  <label><input type="checkbox"> KEWDA WATER</label>
+  <label><input type="checkbox"> KOKUM SEED BUTTER LIME</label>
+  <label><input type="checkbox"> MOGRA</label>
+  <label><input type="checkbox"> MOGRA ESSENTIAL OIL NANO SHAT DHAUT GHRIT</label>
+  <label><input type="checkbox"> NATURAL MINERAL ZINC OXIDE</label>
+  <label><input type="checkbox"> NEEM</label>
+  <label><input type="checkbox"> NEEM LEAF</label>
+  <label><input type="checkbox"> NIACINAMIDE (VITAMIN B3)</label>
+  <label><input type="checkbox"> ORANGE PEEL</label>
+  <label><input type="checkbox"> PARIJAT</label>
+  <label><input type="checkbox"> PATCHOULI</label>
+  <label><input type="checkbox"> PEAR JUICE FERMENT FILTRATE</label>
+  <label><input type="checkbox"> POMEGRANATE EXTRACT</label>
+  <label><input type="checkbox"> PURE GRAIN ALCOHOL</label>
+  <label><input type="checkbox"> PURE ROSEWATER</label>
+  <label><input type="checkbox"> RAW CANE SUGAR</label>
+  <label><input type="checkbox"> SANDALWOOD ESSENTIAL OIL</label>
+  <label><input type="checkbox"> SANJEEVANI HERB INFUSION</label>
+  <label><input type="checkbox"> SWEET ALMOND OIL</label>
+  <label><input type="checkbox"> TURMERIC</label>
+  <label><input type="checkbox"> VITAMIN C CONCENTRATE</label>
+  <label><input type="checkbox"> VITAMIN E</label>
+  <label><input type="checkbox"> WHEAT GERM OIL</label>
+</div>
+  </div>
+
+
+<div class="concern-section">
+  <div class="filter-heading concern-header" onclick="toggleConcernList()">
+    <span class="concern-title">CONCERN</span>
+    <span class="arrow">&#9650;</span>
+  </div>
+  <div class="checkbox-group concern-scroll" id="concernScroll">
+    <label><input type="checkbox"> DRY SKIN</label>
+    <label><input type="checkbox"> SKIN DULLNESS</label>
+    <label><input type="checkbox"> LOSS OF ELASTICITY</label>
+    <label><input type="checkbox"> ENVIRONMENTAL DAMAGE</label>
+    <label><input type="checkbox"> PIGMENTATION</label>
+    <label><input type="checkbox"> SIGNS OF AGEING</label>
+    <label><input type="checkbox"> OIL CONTROL</label>
+    <label><input type="checkbox"> BODY TAN</label>
+    <label><input type="checkbox"> NIGHT CARE</label>
+  </div>
+</div>
+
+
+<div class="skin-section">
+  <div class="filter-heading skin-header" onclick="toggleFilter(this)">
+    <span class="skin-title">SKIN TYPE</span>
+    <span class="arrow">&#9650;</span>
+  </div>
+  <div class="filter-options">
+    <label class="checkbox-label">
+      <input type="checkbox" name="skin" value="dry">
+      <span>DRY</span>
+    </label>
+    <label class="checkbox-label">
+      <input type="checkbox" name="skin" value="normal">
+      <span>NORMAL</span>
+    </label>
+    <label class="checkbox-label">
+      <input type="checkbox" name="skin" value="combination-oily">
+      <span>COMBINATION/OILY</span>
+    </label>
+  </div>
+</div>
+
+<div class="price-section">
+  <div class="filter-heading price-header">
+    <span class="price-title">PRICE</span>
+    <span class="arrow">&#9650;</span>
+  </div>
+  <div class="filter-options hidden">
+     
+     <div class="price-slider">
+  <input type="range" id="minPrice" min="595" max="4500" value="595" step="5">
+  <input type="range" id="maxPrice" min="595" max="4500" value="4500" step="5">
+  <div id="priceRange">₹595 - ₹4500</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+
+
+<section class="product-grid">
+  <!-- Product 1 -->
+  <div class="product-card">
+   
+    <img src="../Just-in(view all)/images/facial cream.jpeg" alt="Product 1">
+    <h4>Hydrating Facial Cream</h4>
+    <div class="stars">★★★★★</div>
+    <p>₹595.00</p>
+    <a href="../new1.html" class="shop-now-btn">Shop Now</a>
+   </div>
+
+  <!-- Product 2 -->
+  <div class="product-card">
+   
+    <img src="../Just-in(view all)/images/vitamin c serum.jpeg" alt="Product 2">
+    <h4>Vitamin C Serum</h4>
+    <div class="stars">★★★★☆</div>
+    <p>₹695.00</p>
+    <a href="../new2.html" class="shop-now-btn">Shop Now</a>
+  </div>
+
+  <!-- Product 3 -->
+  <div class="product-card">
+    
+    <img src="../Just-in(view all)/images/facewash.jpeg" alt="Product 3">
+    <h4>Herbal Face Wash</h4>
+    <div class="stars">★★★★★</div>
+    <p>₹825.00</p>
+    <a href="../new3.html" class="shop-now-btn">Shop Now</a>
+  </div>
+
+  <!-- Product 4 -->
+  <div class="product-card">
+    
+    <img src="../Just-in(view all)/images/toner mist.jpeg" alt="Product 4">
+    <h4>Soothing Toner Mist</h4>
+    <div class="stars">★★★☆☆</div>
+    <p>₹1550.00</p>
+    <a href="../new4.html" class="shop-now-btn">Shop Now</a>
+  </div>
+
+  <!-- Product 5 -->
+  <div class="product-card">
+    
+    <img src="../Just-in(view all)/images/brightning cream.jpeg" alt="Product 5">
+    <h4>Brightening Night Cream</h4>
+    <div class="stars">★★★★☆</div>
+    <p>₹1,650.00</p>
+    <a href="../new5.html" class="shop-now-btn">Shop Now</a>
+  </div>
+
+  <!-- Product 6 -->
+  <div class="product-card">
+    
+    <img src="../Just-in(view all)/images/natural sunscreen.jpeg" alt="Product 6">
+    <h4>Natural Sunscreen SPF 50</h4>
+    <div class="stars">★★★★★</div>
+    <p>₹1875.00</p>
+    <a href="../new6.html" class="shop-now-btn">Shop Now</a>
+  </div>
+
+  <!-- Product 7 -->
+  <div class="product-card">
+    
+    <img src="../Just-in(view all)/images/rose face gel.jpeg" alt="Product 7">
+    <h4>Rose Face Gel</h4>
+    <div class="stars">★★★★☆</div>
+    <p>₹1875.00</p>
+    <a href="../new7.html" class="shop-now-btn">Shop Now</a>
+  </div>
+
+  <!-- Product 8 -->
+  <div class="product-card">
+   
+    <img src="../Just-in(view all)/images/cleanser.jpeg" alt="Product 8">
+    <h4>Tea Tree Cleanser</h4>
+    <div class="stars">★★★★☆</div>
+    <p>₹2250.00</p>
+    <a href="../new8.html" class="shop-now-btn">Shop Now</a>
+  </div>
+
+  <!-- Product 9 -->
+  <div class="product-card">
+    
+    <img src="../Just-in(view all)/images/under eye.jpeg" alt="Product 9">
+    <h4>Under Eye Repair</h4>
+    <div class="stars">★★★☆☆</div>
+    <p>₹2295.00</p>
+    <a href="../new9.html" class="shop-now-btn">Shop Now</a>
+  </div>
+
+  <!-- Product 10 -->
+  <div class="product-card">
+  
+    <img src="../Just-in(view all)/images/pack.jpeg" alt="Product 10">
+    <h4>Neem & Tulsi Pack</h4>
+    <div class="stars">★★★★★</div>
+    <p>₹2450.00</p>
+    <a href="../new10.html" class="shop-now-btn">Shop Now</a>
+  </div>
+
+  <!-- Product 11 -->
+  <div class="product-card">
+    
+    <img src="../Just-in(view all)/images/scrub.jpeg" alt="Product 11">
+    <h4>Glow Boost Scrub</h4>
+    <div class="stars">★★★★☆</div>
+    <p>₹2550.00</p>
+    <a href="../new11.html" class="shop-now-btn">Shop Now</a>
+  </div>
+
+  <!-- Product 12 -->
+  <div class="product-card">
+   
+    <img src="../Just-in(view all)/images/anti ageing.jpeg" alt="Product 12">
+    <h4>Anti-Aging Elixir</h4>
+    <div class="stars">★★★★★</div>
+    <p>₹2600.00</p>
+    <a href="../new12.html" class="shop-now-btn">Shop Now</a>
+  </div>
+
+  <!-- Product 13 -->
+  <div class="product-card">
+    
+    <img src="../Just-in(view all)/images/aloevera.jpeg" alt="Product 13">
+    <h4>Aloe Vera Gel</h4>
+    <div class="stars">★★★☆☆</div>
+    <p>₹4200.00</p>
+    <a href="../new13.html" class="shop-now-btn">Shop Now</a>>
+  </div>
+
+  <!-- Product 14 -->
+  <div class="product-card">
+    
+    <img src="../Just-in(view all)/images/detox mask.jpeg" alt="Product 14">
+    <h4>Charcoal Detox Mask</h4>
+    <div class="stars">★★★★☆</div>
+    <p>₹4250.00</p>
+   <a href="../new14.html" class="shop-now-btn">Shop Now</a>
+  </div>
+
+  <!-- Product 15 -->
+  <div class="product-card">
+    
+    <img src="../Images/Just-In/BotanicaFaceOil2.webp" alt="Product 15">
+    <h4>Botanical Face Oil</h4>
+    <div class="stars">★★★★★</div>
+    <p>₹4500.00</p>
+    <a href="../new15.html" class="shop-now-btn">Shop Now</a>
+  </section>
+  </div>
+
+<script src="../Just-in(view all)/view.js"></script>
+</body>
+</html>
